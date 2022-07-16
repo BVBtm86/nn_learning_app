@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a53521ef-27b6-43af-a3c4-a88baa922e73" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../../Learning/Deep Learning/Deep Learning with Python/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
@@ -902,6 +905,8 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/openpyxl-3.0.9.dist-info/top_level.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/openpyxl/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/openpyxl/_constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/packaging-21.0.dist-info/.LICENSE.APACHE.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/packaging-21.0.dist-info/.LICENSE.BSD.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/packaging-21.0.dist-info/INSTALLER" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/packaging-21.0.dist-info/LICENSE" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/packaging-21.0.dist-info/METADATA" afterDir="false" />
@@ -1674,6 +1679,7 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/wcwidth/unicode_versions.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/wcwidth/version.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/wcwidth/wcwidth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/webencodings-0.5.1.dist-info/.DESCRIPTION.rst.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/webencodings-0.5.1.dist-info/INSTALLER" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/webencodings-0.5.1.dist-info/METADATA" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/webencodings-0.5.1.dist-info/RECORD" afterDir="false" />
@@ -1735,15 +1741,6 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /share/jupyter/nbextensions/pydeck/extensionRequires.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/Lazy_Programmer/ /.idea/. .iml.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../KANO Analysis App/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Neural Network Learning App.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nn_learning_app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_scripts/algo_script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_scripts/utilities.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Turf Analysis App/app.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Sports Analytics/Bundesliga_App/.idea/Bundesliga_App.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.Trash/KANO Analysis App 00.39.21/.idea/KANO Analysis App.iml" beforeDir="false" />
@@ -8729,8 +8726,6 @@
       <change beforePath="$PROJECT_DIR$/../Deep Learning App/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Deep Learning App/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learning/Deep Learning/Deep Learning with Python/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Deep Learning App/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Deep Learning App/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Deep Learning App/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Deep Learning App/deep_learning_app.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Deep Learning App/images/logo.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Deep Learning App/python_scripts/algo_script.py" beforeDir="false" />
@@ -8760,10 +8755,10 @@
       <change beforePath="$PROJECT_DIR$/../KANO Analysis App/python_scripts/algo_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../KANO Analysis App/python_scripts/algo_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../KANO Analysis App/python_scripts/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/../KANO Analysis App/python_scripts/utilities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../KANO Analysis App/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../KANO Analysis App/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Turf Analysis App/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Turf Analysis App/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Turf Analysis App/.streamlit/.config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/.streamlit/config.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Turf Analysis App/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/data/Filter_Data_Turf.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/data/Turf_Data.xlsx" beforeDir="false" />
@@ -8846,7 +8841,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2C1wl1spaNoiitgueknl5xQMkVU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
