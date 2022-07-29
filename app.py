@@ -18,6 +18,36 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
+# ##### Progress Bar Color
+st.markdown(
+    """
+    <style>
+        .stProgress > div > div > div > div {
+            background-image: linear-gradient(to right, #d5e3d6 , #0db518);
+        }
+    </style>""",
+    unsafe_allow_html=True,
+)
+
+# ##### Button Color
+button_color = st.markdown("""
+<style>
+div.stButton > button:first-child {
+    background-color: #ffffff;
+    color:#7575a3;
+    width: 100%;
+    border-color: #ffffff;
+    font-weight: bold;
+}
+div.stButton > button:hover {
+    background-color: #0db518;
+    color:#ffffff;
+    border-color: #ffffff;
+    font-weight: bold;
+    width: 100%;
+    }
+</style>""", unsafe_allow_html=True)
+
 
 # ##### Main Application
 def main():
@@ -25,8 +55,8 @@ def main():
     with st.sidebar:
         st.subheader("NN Task")
         nn_task = option_menu(menu_title=None,
-                              options=["Home", "Training", "Evaluate"],
-                              icons=["house-fill", "wrench", "reception-4"])
+                              options=["Home", "NN Learning"],
+                              icons=["house-fill", "wrench"])
     # ##### App Description
     image_col, title_col = st.columns([1, 11])
     with title_col:
@@ -49,141 +79,71 @@ def main():
         df_name = st.sidebar.selectbox(label="Dataset", options=available_datasets)
         st.markdown(f"<b>Description</b>: <b><font color=#6600cc>{df_name}</font></b> "
                     f"{data_description[available_datasets.index(df_name)]}", unsafe_allow_html=True)
-        train_df, test_df = nn_data(data_name=df_name)
+        train_data, test_data = nn_data(data_name=df_name)
 
         # ##### Parameter selections
         st.sidebar.subheader("Parameters")
-        layer_size = [""]
-        layer_size.extend([i for i in range(1, 11)])
-        no_layers = st.sidebar.selectbox(label="No of Layers", options=layer_size, index=0)
-        if no_layers != "":
-            if nn_task == "Training":
-                training_size = st.sidebar.slider(label="Training Size %", min_value=50, max_value=99, value=80)
-            no_epochs = st.sidebar.slider(label="No of Epochs", min_value=1, max_value=100, value=20)
-            batch_size = st.sidebar.slider(label="Batch Size", min_value=1, max_value=512, value=16)
+        no_layers = st.sidebar.slider(label="No of Layers", min_value=1, max_value=10, value=1)
+        no_epochs = st.sidebar.slider(label="No of Epochs", min_value=1, max_value=100, value=20)
+        batch_size = st.sidebar.slider(label="Batch Size", min_value=1, max_value=512, value=16)
 
-            # ##### Layers Definition
-            st.markdown(f"<h3><b><font color=#6600cc>Network</font></b> Hyperparameters</h3>", unsafe_allow_html=True)
-            col_layers = st.columns(no_layers)
+        # ##### Layers Definition
+        st.markdown(f"<h3><b><font color=#6600cc>Network</font></b> Hyperparameters</h3>", unsafe_allow_html=True)
+        col_layers = st.columns(no_layers)
 
-            # No of Units
-            layer_units = []
-            for i, units in enumerate(col_layers):
-                layer_units.append(units.selectbox(f"# Units for Layer {i + 1}", [4, 8, 16, 32, 64, 128], key=i))
+        # No of Units
+        layer_units = []
+        for i, units in enumerate(col_layers):
+            layer_units.append(units.selectbox(f"# Units for Layer {i + 1}", [4, 8, 16, 32, 64, 128], key=i))
 
-            # No of Units
-            layer_activation = []
-            for i, activation in enumerate(col_layers):
-                layer_activation.append(activation.selectbox(f"Activation for Layer {i + 1}",
-                                                             ["relu", "tanh", "sigmoid", "linear", "softmax"], key=i))
-            # Regularization
-            layer_regularization = []
-            for i, regularization in enumerate(col_layers):
-                layer_regularization.append(regularization.selectbox(f"Regularization for Layer {i + 1}",
-                                                                     [None, "L1", "L2", "L1+L2"], key=i))
+        # No of Units
+        layer_activation = []
+        for i, activation in enumerate(col_layers):
+            layer_activation.append(activation.selectbox(f"Activation for Layer {i + 1}",
+                                                         ["relu", "tanh", "sigmoid", "softmax"], key=i))
+        # # Regularization
+        # layer_regularization = []
+        # for i, regularization in enumerate(col_layers):
+        #     layer_regularization.append(regularization.selectbox(f"Regularization for Layer {i + 1}",
+        #                                                          [None, "L1", "L2", "L1+L2"], key=i))
+        #
+        # # DropOut
+        # layer_dropout = []
+        # for i, dropout in enumerate(col_layers):
+        #     layer_dropout.append(dropout.selectbox(f"DropOut for Layer {i + 1}",
+        #                                            [None, "10%", "20%", "30%", "40%", "50%"], key=i))
 
-            # DropOut
-            layer_dropout = []
-            for i, dropout in enumerate(col_layers):
-                layer_dropout.append(dropout.selectbox(f"DropOut for Layer {i + 1}",
-                                                       [None, "10%", "20%", "30%", "40%", "50%"], key=i))
+        # ##### Deep Learning Model:
+        button_col, output_col = st.columns([2, 14])
+        run_dl = st.sidebar.button("Train Model")
 
-            # ##### Deep Learning Model:
-            train_data, train_labels = train_df[0], train_df[1]
-            test_data, test_labels = test_df[0], test_df[1]
+        if run_dl:
+            progress_bar = st.progress(0)
+            fig_loss, model_architecture = nn_modelling(data_name=df_name,
+                                                        train_data=train_data,
+                                                        no_epochs=no_epochs,
+                                                        batch_size=batch_size,
+                                                        no_layers=no_layers,
+                                                        unit_layers=layer_units,
+                                                        activation_layers=layer_activation,
+                                                        # reg_layers=layer_regularization,
+                                                        # drop_layers=layer_dropout,
+                                                        progress=progress_bar)
 
-            button_col, output_col = st.columns([2, 14])
-            with button_col:
-                if nn_task == "Training":
-                    run_dl = st.button("Train Model")
-                else:
-                    run_dl = st.button("Evaluate Model")
+            progress_bar.empty()
 
-            if run_dl:
-                if nn_task == "Training":
-                    with output_col:
-                        with st.spinner("Training the model..."):
-                            model_history, fig_loss, \
-                            fig_metric, model_df = nn_modelling(data_name=df_name,
-                                                                train_data=train_data,
-                                                                train_labels=train_labels,
-                                                                train_size=training_size,
-                                                                no_epochs=no_epochs,
-                                                                no_batches=batch_size,
-                                                                unit_layers=layer_units,
-                                                                activation_layers=layer_activation,
-                                                                reg_layers=layer_regularization,
-                                                                drop_layers=layer_dropout)
+            # # ##### Training Results
+            model_col, chart_col  = st.columns([4, 7])
+            with chart_col:
+                st.markdown(f"Training <b><font color=#6600cc>Loss</font></b>", unsafe_allow_html=True)
+                config = {'displayModeBar': False}
+                st.plotly_chart(fig_loss, config=config, use_container_width=True)
 
-                    if df_name != "Boston":
-                        st.success(
-                            f"Model Finished after {no_epochs} {'Epochs' if no_epochs > 1 else 'Epoch'} with a "
-                            f"Train Accuracy of {model_history['accuracy'][-1]:.2%} and a Validation Accuracy of "
-                            f"{model_history['val_accuracy'][-1]:.2%}")
-                    else:
-                        st.success(
-                            f"Model Finished after {no_epochs} {'Epochs' if no_epochs > 1 else 'Epoch'} with a "
-                            f"Train MAE of {model_history['mae'][-1]:.2f} and a Validation MAE of "
-                            f"{model_history['val_mae'][-1]:.2f}")
-
-                    # ##### Training Results
-                    st.markdown(f"<h3><b><font color=#6600cc>Training</font></b> Results</h3>", unsafe_allow_html=True)
-                    loss_col, metric_col, _ = st.columns([5, 5, 0.5])
-                    config = {'displayModeBar': False}
-                    with loss_col:
-                        st.plotly_chart(fig_loss, config=config)
-                    with metric_col:
-                        st.plotly_chart(fig_metric, config=config)
-
-                    if df_name != 'Boston':
-                        st.table(
-                            data=model_df.set_index('No of Epochs').style.format(subset=["Train Loss",
-                                                                                         "Validation Loss"],
-                                                                                 formatter="{:.3f}").
-                                format(subset=["Train Accuracy", "Validation Accuracy"], formatter="{:.2%}").
-                                apply(lambda x: ['background: #7575a3' if i % 2 == 1 else 'background: #ffffff'
-                                                 for i in range(len(x))], axis=0).apply(
-                                lambda x:
-                                ['color: #000000' if i % 2 == 0 else 'color: #ffffff'
-                                 for i in range(len(x))],
-                                axis=0).set_table_styles(
-                                [{'selector': 'th',
-                                  'props': [('background-color', '#7575a3'), ('color', '#ffffff')]}]))
-
-                    else:
-                        st.table(
-                            data=model_df.set_index('No of Epochs').style.format(formatter="{:.3f}").
-                                apply(lambda x: ['background: #7575a3' if i % 2 == 1 else 'background: #ffffff'
-                                                 for i in range(len(x))], axis=0).
-                                apply(lambda x: ['color: #000000' if i % 2 == 0 else 'color: #ffffff'
-                                                 for i in range(len(x))], axis=0).set_table_styles(
-                                [{'selector': 'th',
-                                  'props': [('background-color', '#7575a3'), ('color', '#ffffff')]}]))
-
-                else:
-                    with output_col:
-                        with st.spinner("Evaluate model..."):
-                            evaluate_train, evaluate_test = nn_evaluate(data_name=df_name,
-                                                                        train_data=train_data,
-                                                                        train_labels=train_labels,
-                                                                        test_data=test_data,
-                                                                        test_labels=test_labels,
-                                                                        no_epochs=no_epochs,
-                                                                        no_batches=batch_size,
-                                                                        unit_layers=layer_units,
-                                                                        activation_layers=layer_activation,
-                                                                        reg_layers=layer_regularization,
-                                                                        drop_layers=layer_dropout)
-
-                    if df_name != "Boston":
-                        st.success(
-                            f"Final Model after {no_epochs} {'Epochs' if no_epochs > 1 else 'Epoch'} has a "
-                            f"Train Accuracy of {evaluate_train[-1]:.2%} and a Test Accuracy of {evaluate_test[-1]:.2%}")
-                    else:
-                        st.success(
-                            f"Final Model after {no_epochs} {'Epochs' if no_epochs > 1 else 'Epoch'} has a "
-                            f"Train MAE of {evaluate_train[-1]:.2f} and a Test MAE of {evaluate_test[-1]:.2f}")
+            with model_col:
+                st.markdown(f"Model <b><font color=#6600cc>Architecture</font></b>", unsafe_allow_html=True)
+                st.text(model_architecture)
 
 
 if __name__ == '__main__':
+    torch.manual_seed(1909)
     main()
