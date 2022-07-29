@@ -86,54 +86,85 @@ def main():
         no_layers = st.sidebar.slider(label="No of Layers", min_value=1, max_value=10, value=1)
         no_epochs = st.sidebar.slider(label="No of Epochs", min_value=1, max_value=100, value=20)
         batch_size = st.sidebar.slider(label="Batch Size", min_value=1, max_value=512, value=16)
+        include_regularization = st.sidebar.selectbox("Include Regularization", ["No", "L1", "L2", "L1+L2"])
+        if include_regularization != "No":
+            regularization_parameter = st.sidebar.slider(label=f" {include_regularization} Regularization",
+                                                         min_value=0.1, max_value=1.0, value=0.5, step=0.1)
+        else:
+            regularization_parameter = None
 
         # ##### Layers Definition
         st.markdown(f"<h3><b><font color=#6600cc>Network</font></b> Hyperparameters</h3>", unsafe_allow_html=True)
         col_layers = st.columns(no_layers)
 
-        # No of Units
-        layer_units = []
+        # No of Layer Units
+        no_layer_units = []
         for i, units in enumerate(col_layers):
-            layer_units.append(units.selectbox(f"# Units for Layer {i + 1}", [4, 8, 16, 32, 64, 128], key=i))
+            no_layer_units.append(units.selectbox(f"# Units for Layer {i + 1}", [4, 8, 16, 32, 64, 128], key=i))
 
-        # No of Units
+        # Activation Layer Function
         layer_activation = []
         for i, activation in enumerate(col_layers):
             layer_activation.append(activation.selectbox(f"Activation for Layer {i + 1}",
                                                          ["relu", "tanh", "sigmoid", "softmax"], key=i))
-        # # Regularization
-        # layer_regularization = []
-        # for i, regularization in enumerate(col_layers):
-        #     layer_regularization.append(regularization.selectbox(f"Regularization for Layer {i + 1}",
-        #                                                          [None, "L1", "L2", "L1+L2"], key=i))
-        #
-        # # DropOut
-        # layer_dropout = []
-        # for i, dropout in enumerate(col_layers):
-        #     layer_dropout.append(dropout.selectbox(f"DropOut for Layer {i + 1}",
-        #                                            [None, "10%", "20%", "30%", "40%", "50%"], key=i))
+
+        pytorch_activation = []
+        for activation in layer_activation:
+            if activation == 'relu':
+                pytorch_activation.append(nn.ReLU())
+            elif activation == 'tanh':
+                pytorch_activation.append(nn.Tanh())
+            elif activation == 'sigmoid':
+                pytorch_activation.append(nn.Sigmoid())
+            else:
+                pytorch_activation.append(nn.Softmax())
+
+        # DropOut
+        layer_dropout = []
+        for i, dropout in enumerate(col_layers):
+            layer_dropout.append(dropout.selectbox(f"DropOut for Layer {i + 1}",
+                                                   [None, "10%", "20%", "30%", "40%", "50%"], key=i))
+
+        pytorch_dropout = []
+        for dropout in layer_dropout:
+            if dropout == '10%':
+                pytorch_dropout.append(nn.Dropout(p=0.1))
+            elif dropout == '20%':
+                pytorch_dropout.append(nn.Dropout(p=0.2))
+            elif dropout == '30%':
+                pytorch_dropout.append(nn.Dropout(p=0.3))
+            elif dropout == '40%':
+                pytorch_dropout.append(nn.Dropout(p=0.4))
+            elif dropout == '50%':
+                pytorch_dropout.append(nn.Dropout(p=0.5))
+            else:
+                pytorch_dropout.append(nn.Dropout(p=0))
 
         # ##### Deep Learning Model:
+        layer_input_size = [train_data.data.shape[1] * train_data.data.shape[2]]
+        layer_input_size.extend(no_layer_units)
         button_col, output_col = st.columns([2, 14])
         run_dl = st.sidebar.button("Train Model")
 
         if run_dl:
             progress_bar = st.progress(0)
-            fig_loss, model_architecture = nn_modelling(data_name=df_name,
-                                                        train_data=train_data,
-                                                        no_epochs=no_epochs,
-                                                        batch_size=batch_size,
-                                                        no_layers=no_layers,
-                                                        unit_layers=layer_units,
-                                                        activation_layers=layer_activation,
-                                                        # reg_layers=layer_regularization,
-                                                        # drop_layers=layer_dropout,
-                                                        progress=progress_bar)
+            fig_loss, model_architecture, train_accuracy, test_accuracy = \
+                nn_modelling(data_name=df_name,
+                             train_data=train_data,
+                             test_data=test_data,
+                             no_epochs=no_epochs,
+                             batch_size=batch_size,
+                             no_layers=no_layers,
+                             unit_layers=layer_input_size,
+                             activation_layers=pytorch_activation,
+                             drop_layers=pytorch_dropout,
+                             regularization=include_regularization,
+                             regularization_lambda=regularization_parameter,
+                             progress=progress_bar)
 
             progress_bar.empty()
-
             # # ##### Training Results
-            model_col, chart_col  = st.columns([4, 7])
+            model_col, chart_col = st.columns([4, 7])
             with chart_col:
                 st.markdown(f"Training <b><font color=#6600cc>Loss</font></b>", unsafe_allow_html=True)
                 config = {'displayModeBar': False}
@@ -142,6 +173,8 @@ def main():
             with model_col:
                 st.markdown(f"Model <b><font color=#6600cc>Architecture</font></b>", unsafe_allow_html=True)
                 st.text(model_architecture)
+                st.success(f"The model completed after {no_epochs} Epochs with a Train Accuracy of {train_accuracy:.2%}"
+                           f" and a Test Accuracy of {test_accuracy:.2%}")
 
 
 if __name__ == '__main__':

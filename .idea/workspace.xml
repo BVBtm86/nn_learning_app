@@ -2432,6 +2432,8 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/components/xterm.js-fit/index.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/components/xterm.js/index.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/custom/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/edit/js/.main.min.js.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/edit/js/.main.min.js.map.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/edit/js/editor.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/edit/js/main.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/edit/js/menubar.js" afterDir="false" />
@@ -2478,8 +2480,12 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/services/kernels/kernel.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/services/kernels/serialize.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/services/sessions/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/terminal/js/.main.min.js.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/terminal/js/.main.min.js.map.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/terminal/js/main.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/terminal/js/terminado.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/tree/js/.main.min.js.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/tree/js/.main.min.js.map.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/tree/js/kernellist.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/tree/js/main.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/notebook/static/tree/js/newnotebook.js" afterDir="false" />
@@ -2679,6 +2685,12 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/shape_base.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/..__init__.py.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/_locales.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/data/.astype_copy.pkl.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/data/.recarray_from_file.fits.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/data/.umath-validation-set-cos.csv.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/data/.umath-validation-set-exp.csv.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/data/.umath-validation-set-log.csv.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/data/.umath-validation-set-sin.csv.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/data/umath-validation-set-README.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/examples/.checks.pyx.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/numpy/core/tests/examples/setup.py" afterDir="false" />
@@ -12720,6 +12732,14 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/.pyarrow_cython_example.pyx.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/arrow_7980.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/conftest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.TestOrcFile.emptyFile.jsn.gz.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.TestOrcFile.emptyFile.orc.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.TestOrcFile.test1.jsn.gz.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.TestOrcFile.test1.orc.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.TestOrcFile.testDate1900.jsn.gz.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.TestOrcFile.testDate1900.orc.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.decimal.jsn.gz.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/.decimal.orc.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/data/orc/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/deserialize_buffer.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/pyarrow/tests/pandas_examples.py" afterDir="false" />
@@ -14460,6 +14480,7 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/scipy/spatial/qhull_src/COPYING.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/scipy/spatial/setup.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/scipy/spatial/tests/..__init__.py.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/scipy/spatial/tests/data/.degenerate_pointset.npz.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/scipy/spatial/tests/data/cdist-X1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/scipy/spatial/tests/data/cdist-X2.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/scipy/spatial/tests/data/iris.txt" afterDir="false" />
@@ -15232,6 +15253,9 @@
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/static/js/main.6035ec1d.chunk.js.LICENSE.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/static/js/runtime-main.54eb70aa 2.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/static/js/runtime-main.54eb70aa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/vendor/viz/.viz-1.8.0.min 2.js.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/vendor/viz/.viz-1.8.0.min 3.js.icloud" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/vendor/viz/.viz-1.8.0.min.js.icloud" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/vendor/viz/viz.js-LICENSE 2.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/vendor/viz/viz.js-LICENSE 3.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Learning/Udemy/ /lib/python3.9/site-packages/streamlit/static/vendor/viz/viz.js-LICENSE.txt" afterDir="false" />
@@ -20002,8 +20026,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_scripts/algo_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_scripts/algo_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_scripts/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_scripts/utilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_scripts/arhitecture_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_scripts/arhitecture_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Turf Analysis App/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Turf Analysis App/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Turf Analysis App/.idea/vcs.xml" afterDir="false" />

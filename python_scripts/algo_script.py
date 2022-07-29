@@ -17,10 +17,9 @@ data_description = [
     # "Boston Mass used for regression tasks."
 
 
-def nn_modelling(data_name, train_data, no_epochs, batch_size, no_layers,
-                 unit_layers, activation_layers, progress):
+def nn_modelling(data_name, train_data, test_data, no_epochs, batch_size, no_layers, unit_layers,
+                 activation_layers, drop_layers, regularization, regularization_lambda, progress):
 
-    # reg_layers, drop_layers
     # ##### Check if GPU is available
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -28,17 +27,20 @@ def nn_modelling(data_name, train_data, no_epochs, batch_size, no_layers,
     input_size = train_data.data.shape[1] * train_data.data.shape[2]
     num_classes = max(train_data.targets).item() + 1
     learning_rate = 0.001
-    model = NeuralNetworkModel(input_size, unit_layers, num_classes, no_layers, activation_layers)
+    model = NeuralNetworkModel(unit_layers, num_classes, no_layers, activation_layers, drop_layers)
 
     # ##### loss and optimizer
-    criterion = nn.CrossEntropyLoss()
+    loss_function = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(),
                                  lr=learning_rate)
 
-    # ##### Train Loader
+    # ##### Create Loader
     train_loader = torch.utils.data.DataLoader(dataset=train_data,
                                                batch_size=batch_size,
                                                shuffle=True)
+    test_loader = torch.utils.data.DataLoader(dataset=test_data,
+                                              batch_size=batch_size,
+                                              shuffle=False)
 
     # ##### Training loop
     widget = st.empty()
@@ -52,7 +54,24 @@ def nn_modelling(data_name, train_data, no_epochs, batch_size, no_layers,
 
             # ##### forward pass
             outputs = model(images)
-            loss = criterion(outputs, labels)
+            loss = loss_function(outputs, labels)
+
+            # ##### Regularization
+            if regularization != "No":
+                if regularization == "L1":
+                    lambda_param = regularization_lambda
+                    l_norm = sum(param.abs().sum() for param in model.parameters())
+                    loss = loss + (lambda_param * l_norm)
+                elif regularization == "L2":
+                    lambda_param = regularization_lambda
+                    l_norm = sum(param.square().sum() for param in model.parameters())
+                    loss = loss + (lambda_param * l_norm)
+                else:
+                    lambda_1 = regularization_lambda
+                    lambda_2 = 1 - lambda_1
+                    l1_norm = sum(param.abs().sum() for param in model.parameters())
+                    l2_norm = sum(param.square().sum() for param in model.parameters())
+                    loss = loss + (lambda_1 * l1_norm) + (lambda_2 * l2_norm)
 
             # ##### backward pass
             optimizer.zero_grad()
@@ -87,4 +106,34 @@ def nn_modelling(data_name, train_data, no_epochs, batch_size, no_layers,
     loss_fig.update_xaxes(showgrid=False, zeroline=False)
     loss_fig.update_layout(showlegend=False)
 
-    return loss_fig, model
+    # ##### Testing
+    with torch.no_grad():
+        # ##### Train
+        train_n_correct = 0
+        train_n_samples = 0
+        for train_images, train_labels in train_loader:
+            train_images = train_images.view(train_images.size(0), -1).to(device)
+            train_labels = train_labels.to(device)
+            train_outputs = model(train_images)
+
+            _, train_predictions = torch.max(train_outputs, axis=1)
+            train_n_samples += train_labels.shape[0]
+            train_n_correct += (train_predictions == train_labels).sum().item()
+
+        train_acc = train_n_correct / train_n_samples
+
+        # ##### Test
+        test_n_correct = 0
+        test_n_samples = 0
+        for test_images, test_labels in test_loader:
+            test_images = test_images.view(test_images.size(0), -1).to(device)
+            test_labels = test_labels.to(device)
+            test_outputs = model(test_images)
+
+            _, test_predictions = torch.max(test_outputs, axis=1)
+            test_n_samples += test_labels.shape[0]
+            test_n_correct += (test_predictions == test_labels).sum().item()
+
+        test_acc = test_n_correct / test_n_samples
+
+    return loss_fig, model, train_acc, test_acc
