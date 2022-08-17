@@ -3,11 +3,14 @@ from python_scripts.utilities import *
 from python_scripts.algo_script import *
 from streamlit_option_menu import option_menu
 
+# ##### Images
+logo = Image.open('images/android-chrome-512x512.png')
+icon_page = Image.open('images/apple-touch-icon.png')
+
+# ##### App Configuration
 st.set_page_config(layout="wide",
                    page_title="Deep Learning App",
-                   page_icon="📶")
-
-logo = Image.open('images/logo.png')
+                   page_icon=icon_page)
 
 # ##### Hide Streamlit info
 hide_streamlit_style = """
